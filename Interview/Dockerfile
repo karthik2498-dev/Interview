@@ -3,11 +3,14 @@ FROM gradle:8.7-jdk17 AS build
 
 WORKDIR /app
 
-# Copy Gradle wrapper and build files
+# Copy Gradle wrapper and related files
 COPY Interview/gradlew Interview/settings.gradle Interview/build.gradle* Interview/gradle /app/
 
-# Download dependencies (leverage Docker cache)
-RUN ./gradlew build -x test --no-daemon || return 0
+# Make gradlew executable
+RUN chmod +x ./gradlew
+
+# Download dependencies (uses Docker cache)
+RUN ./gradlew build -x test --no-daemon || true
 
 # Copy the source code
 COPY Interview/src /app/src
@@ -24,4 +27,4 @@ COPY --from=build /app/build/libs/*.jar app.jar
 # Run the JAR
 ENTRYPOINT ["java", "-jar", "/app.jar"]
 
-EXPOSE 8080
+EXPOSE 7070
