@@ -27,4 +27,4 @@ jobs:
         context: ./
         file: ./Interview/Dockerfile
         push: true
-        tags: karthik24981998/Interview:1.0
+        tags: karthik24981998/interview:1.0
