@@ -4,7 +4,7 @@ FROM gradle:8.7-jdk17 AS build
 WORKDIR /app
 
 # Copy Gradle wrapper and related files
-COPY Interview/gradlew Interview/settings.gradle Interview/build.gradle* Interview/gradle /app/
+COPY Interview/ /app/
 
 # Make gradlew executable
 RUN chmod +x ./gradlew
