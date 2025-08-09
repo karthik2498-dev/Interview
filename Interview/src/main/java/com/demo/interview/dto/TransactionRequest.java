@@ -30,6 +30,16 @@ public class TransactionRequest {
 
         @XmlElement(name = "Amt")
         private double amount;
+        
+        @XmlElement(name = "PaymentType")
+        private String paymentType;
+
+        public String getPaymentType() {
+            return paymentType;
+        }
+        public void setPaymentType(String paymentType) {
+            this.paymentType = paymentType;
+        }
 
 		public Party getDebtor() {
 			return debtor;
@@ -89,14 +99,6 @@ public class TransactionRequest {
 
     }
     
-    @XmlElement(name = "PaymentType")
-    private String paymentType;
-
-    public String getPaymentType() {
-        return paymentType;
-    }
-    public void setPaymentType(String paymentType) {
-        this.paymentType = paymentType;
-    }
+    
 }
 
