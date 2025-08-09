@@ -36,7 +36,7 @@ public class TransactionService {
 
        // userRepo.save(debtor);
         //userRepo.save(creditor);
-
+        System.err.println("Transaction successful");
         return "Transaction successful";
     }
 }
